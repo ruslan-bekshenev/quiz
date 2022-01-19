@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Box } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
 import { Header } from './components/layout/Header';
-import { WelcomePage } from './pages/Welcome';
 import { Container } from './components/layout/Container';
+import { Suspense } from './components/layout/Suspense';
+import { routes } from './utils/routes';
+
+const WelcomePage = lazy(() =>
+  import('./pages/Welcome').then((module) => ({ default: module.WelcomePage })),
+);
+
+const QuizPage = lazy(() =>
+  import('./pages/Quiz').then((module) => ({ default: module.QuizPage })),
+);
 
 const App = () => {
   return (
@@ -11,9 +20,22 @@ const App = () => {
       <Header />
       <Container>
         <Routes>
-          <Route path="/" element={<WelcomePage />} />
-          <Route path="/welcome" element={<WelcomePage />} />
-          <Route path="/" />
+          <Route
+            path={routes.main}
+            element={
+              <Suspense>
+                <WelcomePage />
+              </Suspense>
+            }
+          />
+          <Route
+            path={routes.quiz}
+            element={
+              <Suspense>
+                <QuizPage />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<div>asd</div>} />
         </Routes>
       </Container>

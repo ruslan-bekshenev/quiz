@@ -35,6 +35,9 @@
     "arrow-body-style": "off",
     "import/extensions": "off",
     "import/no-unresolved": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "function-paren-newline": "off",
+    "implicit-arrow-linebreak": "off",
+    "react/jsx-wrap-multilines": "off"
   }
 }

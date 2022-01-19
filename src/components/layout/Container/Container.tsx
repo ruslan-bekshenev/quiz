@@ -4,7 +4,7 @@ import { Container as MuiContainer } from '@mui/material';
 const Container: FC = ({ children }) => {
   return (
     <MuiContainer
-      maxWidth="md"
+      maxWidth="sm"
       sx={{
         py: 4,
       }}
