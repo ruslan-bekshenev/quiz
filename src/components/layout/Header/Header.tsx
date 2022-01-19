@@ -37,7 +37,7 @@ const Header = () => {
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
-        <Drawer open={showDrawer}>
+        <Drawer open={showDrawer} onClose={handleShowDrawer}>
           <Box>
             <List>
               <ListItem>
